@@ -36,7 +36,8 @@ GLOBAL_AVG = """SELECT AVG(temperature) as average FROM temperatures;"""
 
 
 url = os.environ.get("DATABASE_URL")
-connection = psycopg2.connect(url)
+connection = psycopg2.connect(
+    host="localhost", port="5432", database="master", user="postgres", password="123456")
 app = Flask(__name__)
 
 
