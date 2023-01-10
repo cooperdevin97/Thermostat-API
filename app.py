@@ -1,3 +1,4 @@
+
 from flask import Flask, request
 from datetime import datetime, timezone
 import psycopg2
@@ -35,8 +36,11 @@ GLOBAL_NUMBER_OF_DAYS = (
 GLOBAL_AVG = """SELECT AVG(temperature) as average FROM temperatures;"""
 
 
-url = os.environ.get("DATABASE_URL")
-connection = psycopg2.connect(url)
+connection = psycopg2.connect(
+    host="localhost",
+    database="api",
+    user="postgres",
+    password="cooper")
 app = Flask(__name__)
 
 
